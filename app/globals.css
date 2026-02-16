@@ -1,26 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #B47F39;
+  --color-primary-dark: #92662e; 
+  --color-primary-text: #4A5568;
+  --color-primary-text-dark: #1A202C;
+
+  /* Custom Typography Sizes */
+  --font-size-h1: 44px;
+  --font-size-h1-tab: 52px;
+  --font-size-h1-desktop: 64px;
+
+  --font-size-subtext: 18px;
+  --font-size-subtext-tab: 20px;
+  --font-size-subtext-desktop: 24px;
+
+  --font-size-normal: 16px;
+  --font-size-normal-desktop: 18px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Global Section Spacing & Max-Width */
+section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* Mobile Spacing */
+  padding: 48px 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Tablet */
+@media (min-width: 768px) {
+  section {
+    padding: 64px 48px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Desktop & Max-Content Cap */
+@media (min-width: 1024px) {
+  section {
+    padding: 96px 48px;
+  }
+}
+
+
+/* Desktop & Max-Content Cap */
+@media (min-width: 1440px) {
+  section {
+    padding: 96px 150px;
+  }
+  
+  /* Ensures content doesn't exceed a readable width on ultra-wide screens 
+  */
+  .section-content {
+    max-width: 1560px;
+    margin: 0 auto;
+  }
 }

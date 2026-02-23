@@ -7,6 +7,7 @@ import FaqsSection from "@/components/home/FaqsSection";
 import CtaSection from "@/components/layout/CtaSection";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
+import CareerSection from "@/components/about/CareerSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <ValuesSection />
+      <CareerSection />
       <TestimonialSection />
       <FaqsSection />
       <CtaSection 

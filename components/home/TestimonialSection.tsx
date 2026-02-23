@@ -26,20 +26,21 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Gustave Mulunda",
-    location: "Mulunda-gustave@outlook.com",
+    name: "G M",
+    location: "",
+    rating: 5.0,
+    quote: "Her assistance to us during this difficult time when my wife and I welcomed our first child is immeasurable and left us speechless. She cared for the baby and my wife during this time, including bathing and feeding the baby, looking after the child while allowing my wife to catch up on rest, cleaning the house and making food for us, providing great advise, and going to the hospital appointments with us. Her quality of care is both personal, professional, and extremely kind and thoughtful. We cannot but be truly grateful for the selfless service flowing from a heart of Gold. Her care is not only skilled and experienced, but also grounded in character.",
+    //image: "https://i.pravatar.cc/150?u=emily"
+  },
+   {
+    id: 3,
+    name: "E S",
+    location: "Brisbane",
     rating: 5.0,
     quote: "As a nurse and a long-standing servant of the community, Felicia brings professionalism, calm assurance, and empathy into everything she does. She listens attentively, treats people with dignity, and consistently places the wellbeing of others at the centre of her work. Her care is not only skilled and experienced, but also grounded in character.",
     //image: "https://i.pravatar.cc/150?u=emily"
   },
-  // {
-  //   id: 3,
-  //   name: "Sarah Jenkins",
-  //   location: "Lagos",
-  //   rating: 5.0,
-  //   quote: "Exceptional service that goes above and beyond. The peace of mind they provide is priceless.",
-  //   //image: "https://i.pravatar.cc/150?u=sarah"
-  // }
+ 
 ];
 
 const TestimonialSection: React.FC = () => {

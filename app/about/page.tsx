@@ -4,6 +4,7 @@ import AboutSection from "@/components/about/AboutSection";
 import FounderSection from "@/components/about/FounderSection";
 import FaqsSection from "@/components/home/FaqsSection";
 import CtaSection from "@/components/layout/CtaSection";
+import CareerSection from "@/components/about/CareerSection";
 
 export default function About() {
     return (
@@ -15,6 +16,7 @@ export default function About() {
         <AboutPageSection />
         <AboutSection />
         <FounderSection />
+        <CareerSection />
         <FaqsSection />
         <CtaSection 
             image="/about/cta.webp"

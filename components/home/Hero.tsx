@@ -42,15 +42,15 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Hero Image Container */}
-        <div className='relative'>
-          <div className='rounded-[16px] overflow-hidden shadow lg:aspect-square'>
+        <div className='relative w-full'>
+          <div className='relative w-full aspect-square lg:aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl border border-white'>
             <Image
               src="/home/hero.webp" 
               alt="Caregiver providing support" 
               fill 
               priority 
-              className="object-cover rounded-2xl" 
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+              className="object-cover" 
+              sizes="(max-width: 768px) 100vw, 50vw" 
             />
           </div>
         </div>

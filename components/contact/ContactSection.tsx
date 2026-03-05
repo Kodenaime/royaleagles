@@ -1,7 +1,42 @@
-import React from 'react';
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+"use client";
+
+import React, {useState, useRef } from 'react';
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, X } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mnjbqnop", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        formRef.current?.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem connecting to the server");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact">
       <div className="section-content flex flex-col space-y-16">
@@ -33,10 +68,36 @@ const ContactSection: React.FC = () => {
           
           {/* Contact Form */}
           <form 
-            action="https://formspree.io/f/mnjbqnop" 
-            method="POST" 
+            ref={formRef}
+            onSubmit={handleSubmit}
             className="bg-white p-8 md:px-[32px] py-[24px] rounded-[18px] shadow-sm border border-gray-100 space-y-8"
           >
+
+            {/* Success Overlay within the form container */}
+              {showSuccess && (
+                <div className="absolute inset-0 z-50 bg-white/98 flex items-center justify-center p-8 animate-in fade-in zoom-in-95 duration-300">
+                  <button 
+                    type="button"
+                    onClick={() => setShowSuccess(false)}
+                    className="absolute top-6 right-6 text-slate-400 hover:text-slate-900"
+                  >
+                    <X size={24} />
+                  </button>
+                  <div className="text-center space-y-4">
+                    <CheckCircle2 size={64} className="text-primary mx-auto" />
+                    <h3 className="text-2xl font-bold text-slate-900">Message Sent!</h3>
+                    <p className="text-slate-600">Thank you for reaching out. We will get back to you shortly.</p>
+                    <button 
+                      type="button"
+                      onClick={() => setShowSuccess(false)}
+                      className="text-primary font-bold hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                </div>
+              )}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-bold text-slate-800 ml-1">First name</label>
@@ -98,9 +159,10 @@ const ContactSection: React.FC = () => {
 
             <button 
               type="submit" 
+              disabled={isSubmitting}
               className="w-full sm:w-fit bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-lg active:scale-95 cursor-pointer"
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
               <ArrowRight size={22} />
             </button>
           </form>

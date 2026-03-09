@@ -9,7 +9,7 @@ const CareerSection: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   // Pre-filled email details
-  const email = "career@royaleagles.com.au";
+  const email = "careers@royaleagles.com.au";
   const subject = encodeURIComponent("Application for Caregiver Role");
   const mailtoLink = `mailto:${email}?subject=${subject}`;
 
